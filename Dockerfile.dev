@@ -1,0 +1,12 @@
+#docker build -f Dockerfile.dev .
+#docker run -a stdin -p 3000:3000 d908fc07c7ea
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+CMD ["npm","run","start"]
